@@ -1,5 +1,3 @@
-music/*.mp3
-music/*.MP3
-assets/*.jpg
-assets/*.docx
-resume/*.pdf
+# Project ignores
+node_modules/
+.DS_Store

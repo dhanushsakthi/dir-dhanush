@@ -73,12 +73,12 @@
         <div class="hero-content">
             <div class="hero-badge">
                 <span class="badge-line"></span>
-                <span class="badge-text">ASSISTANT DIRECTOR</span>
+                <span class="badge-text ghost-text">ASSISTANT DIRECTOR</span>
                 <span class="badge-line"></span>
             </div>
             <h1 class="hero-name">
-                <span class="name-line">DHANUSH</span>
-                <span class="name-line name-last">.S</span>
+                <span class="name-line ghost-text">DHANUSH</span>
+                <span class="name-line name-last ghost-text">.S</span>
             </h1>
             <p class="hero-tagline">Aspiring Film Director & AI-Driven Storyteller</p>
             <div class="hero-quote">
@@ -114,34 +114,6 @@
                 <h2 class="section-title">About Me</h2>
                 <div class="title-line"></div>
             </div>
-            <div class="about-grid">
-                <div class="about-image-wrapper">
-                    <div class="about-image-frame">
-                        <div class="image-placeholder">
-                            <div class="placeholder-icon">🎬</div>
-                            <span>DHANUSH S</span>
-                            <span class="placeholder-sub">Assistant Director</span>
-                        </div>
-                        <div class="frame-corner tl"></div>
-                        <div class="frame-corner tr"></div>
-                        <div class="frame-corner bl"></div>
-                        <div class="frame-corner br"></div>
-                    </div>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <span class="stat-number">2+</span>
-                            <span class="stat-label">Projects</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">8.05</span>
-                            <span class="stat-label">GPA</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">AI</span>
-                            <span class="stat-label">Powered</span>
-                        </div>
-                    </div>
-                </div>
                 <div class="about-content">
                     <h3 class="about-subtitle">The Next Generation Filmmaker</h3>
                     <p class="about-text">
@@ -165,7 +137,30 @@
                         <p>To work under a visionary director as an <strong>Assistant Director</strong> and contribute with both creative storytelling and AI-powered filmmaking techniques to create impactful, future-ready cinema.</p>
                     </div>
                 </div>
-            </div>
+
+                <div class="about-image-wrapper">
+                    <div class="about-image-frame">
+                        <img src="assets/DHANUSH(IMAGE).jpg" alt="Dhanush S">
+                        <div class="frame-corner tl"></div>
+                        <div class="frame-corner tr"></div>
+                        <div class="frame-corner bl"></div>
+                        <div class="frame-corner br"></div>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">2+</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">8.05</span>
+                            <span class="stat-label">GPA</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">AI</span>
+                            <span class="stat-label">Powered</span>
+                        </div>
+                    </div>
+                </div>
         </div>
     </section>
 
@@ -411,15 +406,15 @@
                 <p class="showcase-desc">Upload your songs and BGM files into the <code>music/</code> folder. Viewers can listen to them directly here.</p>
                 
                 <div class="audio-player-container" id="audioPlayerContainer">
-                    <!-- Tracks will be populated by JS or manually -->
-                    <div class="audio-track" data-src="music/sample-bgm.mp3">
+                    <!-- All Music Tracks -->
+                    <div class="audio-track" data-src="music/love-rejected.mp3">
                         <div class="track-info">
                             <div class="track-visualizer">
                                 <span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span>
                             </div>
                             <div class="track-details">
-                                <span class="track-name">Sample BGM Track</span>
-                                <span class="track-type">Background Score</span>
+                                <span class="track-name">Love Rejected</span>
+                                <span class="track-type">Dramatic BGM</span>
                             </div>
                         </div>
                         <div class="track-controls">
@@ -428,9 +423,183 @@
                                 <svg class="icon-pause" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
                             </button>
                             <div class="progress-container" onclick="seekAudio(event, this)">
-                                <div class="progress-bar">
-                                    <div class="progress-fill"></div>
-                                </div>
+                                <div class="progress-bar"><div class="progress-fill"></div></div>
+                            </div>
+                            <span class="track-duration">0:00</span>
+                        </div>
+                    </div>
+
+                    <div class="audio-track" data-src="music/Midnight Mind Game.mp3">
+                        <div class="track-info">
+                            <div class="track-visualizer">
+                                <span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span>
+                            </div>
+                            <div class="track-details">
+                                <span class="track-name">Midnight Mind Game</span>
+                                <span class="track-type">Cinematic Theme</span>
+                            </div>
+                        </div>
+                        <div class="track-controls">
+                            <button class="play-btn" onclick="togglePlay(this)" aria-label="Play">
+                                <svg class="icon-play" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                                <svg class="icon-pause" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                            </button>
+                            <div class="progress-container" onclick="seekAudio(event, this)">
+                                <div class="progress-bar"><div class="progress-fill"></div></div>
+                            </div>
+                            <span class="track-duration">0:00</span>
+                        </div>
+                    </div>
+
+                    <div class="audio-track" data-src="music/Midnight Mind Trap (1).mp3">
+                        <div class="track-info">
+                            <div class="track-visualizer">
+                                <span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span>
+                            </div>
+                            <div class="track-details">
+                                <span class="track-name">Midnight Mind Trap (1)</span>
+                                <span class="track-type">Dramatic Score</span>
+                            </div>
+                        </div>
+                        <div class="track-controls">
+                            <button class="play-btn" onclick="togglePlay(this)" aria-label="Play">
+                                <svg class="icon-play" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                                <svg class="icon-pause" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                            </button>
+                            <div class="progress-container" onclick="seekAudio(event, this)">
+                                <div class="progress-bar"><div class="progress-fill"></div></div>
+                            </div>
+                            <span class="track-duration">0:00</span>
+                        </div>
+                    </div>
+
+                    <div class="audio-track" data-src="music/Midnight Mind Trap.mp3">
+                        <div class="track-info">
+                            <div class="track-visualizer">
+                                <span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span>
+                            </div>
+                            <div class="track-details">
+                                <span class="track-name">Midnight Mind Trap</span>
+                                <span class="track-type">Thriller Theme</span>
+                            </div>
+                        </div>
+                        <div class="track-controls">
+                            <button class="play-btn" onclick="togglePlay(this)" aria-label="Play">
+                                <svg class="icon-play" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                                <svg class="icon-pause" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                            </button>
+                            <div class="progress-container" onclick="seekAudio(event, this)">
+                                <div class="progress-bar"><div class="progress-fill"></div></div>
+                            </div>
+                            <span class="track-duration">0:00</span>
+                        </div>
+                    </div>
+
+                    <div class="audio-track" data-src="music/one-side(love).mp3">
+                        <div class="track-info">
+                            <div class="track-visualizer">
+                                <span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span>
+                            </div>
+                            <div class="track-details">
+                                <span class="track-name">One Side Love</span>
+                                <span class="track-type">Romantic Melancholy</span>
+                            </div>
+                        </div>
+                        <div class="track-controls">
+                            <button class="play-btn" onclick="togglePlay(this)" aria-label="Play">
+                                <svg class="icon-play" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                                <svg class="icon-pause" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                            </button>
+                            <div class="progress-container" onclick="seekAudio(event, this)">
+                                <div class="progress-bar"><div class="progress-fill"></div></div>
+                            </div>
+                            <span class="track-duration">0:00</span>
+                        </div>
+                    </div>
+
+                    <div class="audio-track" data-src="music/sad-song(1-side).mp3">
+                        <div class="track-info">
+                            <div class="track-visualizer">
+                                <span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span>
+                            </div>
+                            <div class="track-details">
+                                <span class="track-name">Sad Song (One Side)</span>
+                                <span class="track-type">Emotional Score</span>
+                            </div>
+                        </div>
+                        <div class="track-controls">
+                            <button class="play-btn" onclick="togglePlay(this)" aria-label="Play">
+                                <svg class="icon-play" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                                <svg class="icon-pause" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                            </button>
+                            <div class="progress-container" onclick="seekAudio(event, this)">
+                                <div class="progress-bar"><div class="progress-fill"></div></div>
+                            </div>
+                            <span class="track-duration">0:00</span>
+                        </div>
+                    </div>
+
+                    <div class="audio-track" data-src="music/Shadow Within the Frame.mp3">
+                        <div class="track-info">
+                            <div class="track-visualizer">
+                                <span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span>
+                            </div>
+                            <div class="track-details">
+                                <span class="track-name">Shadow Within the Frame</span>
+                                <span class="track-type">AI Cinematic Score</span>
+                            </div>
+                        </div>
+                        <div class="track-controls">
+                            <button class="play-btn" onclick="togglePlay(this)" aria-label="Play">
+                                <svg class="icon-play" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                                <svg class="icon-pause" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                            </button>
+                            <div class="progress-container" onclick="seekAudio(event, this)">
+                                <div class="progress-bar"><div class="progress-fill"></div></div>
+                            </div>
+                            <span class="track-duration">0:00</span>
+                        </div>
+                    </div>
+
+                    <div class="audio-track" data-src="music/நீ சொன்ன வார்த்தை இன்னும் நெஞ்சுல ஓசை….mp3">
+                        <div class="track-info">
+                            <div class="track-visualizer">
+                                <span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span>
+                            </div>
+                            <div class="track-details">
+                                <span class="track-name">நீ சொன்ன வார்த்தை...</span>
+                                <span class="track-type">Tamil Emotional Track</span>
+                            </div>
+                        </div>
+                        <div class="track-controls">
+                            <button class="play-btn" onclick="togglePlay(this)" aria-label="Play">
+                                <svg class="icon-play" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                                <svg class="icon-pause" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                            </button>
+                            <div class="progress-container" onclick="seekAudio(event, this)">
+                                <div class="progress-bar"><div class="progress-fill"></div></div>
+                            </div>
+                            <span class="track-duration">0:00</span>
+                        </div>
+                    </div>
+
+                    <div class="audio-track" data-src="music/ஹும்… ஹும்… இருள் பேசும்….mp3">
+                        <div class="track-info">
+                            <div class="track-visualizer">
+                                <span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span><span class="viz-bar"></span>
+                            </div>
+                            <div class="track-details">
+                                <span class="track-name">ஹும்… ஹும்… இருள் பேசும்...</span>
+                                <span class="track-type">Tamil Atmospheric Score</span>
+                            </div>
+                        </div>
+                        <div class="track-controls">
+                            <button class="play-btn" onclick="togglePlay(this)" aria-label="Play">
+                                <svg class="icon-play" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                                <svg class="icon-pause" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                            </button>
+                            <div class="progress-container" onclick="seekAudio(event, this)">
+                                <div class="progress-bar"><div class="progress-fill"></div></div>
                             </div>
                             <span class="track-duration">0:00</span>
                         </div>
@@ -484,11 +653,11 @@
             <div class="resume-section">
                 <h3 class="showcase-subtitle">📄 Download Resume</h3>
                 <p class="showcase-desc">Get a copy of my professional resume</p>
-                <a href="resume/Dhanush_S_Resume.pdf" download class="btn btn-resume" id="downloadResume">
+                <a href="resume/ASSIESTENR_DIRECTOR-DHANUSH.pdf" download class="btn btn-resume" id="downloadResume">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                     <span>Download My Resume (PDF)</span>
                 </a>
-                <p class="resume-note">Place your resume PDF in the <strong>resume/</strong> folder as <code>Dhanush_S_Resume.pdf</code></p>
+                <p class="resume-note">Professional Resume — Assistant Director</p>
             </div>
         </div>
     </section>

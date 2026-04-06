@@ -163,54 +163,67 @@ let currentTrackEl = null;
 
 function togglePlay(btn) {
     const trackEl = btn.closest('.audio-track');
-    const src = trackEl.getAttribute('data-src');
+    const rawSrc = trackEl.getAttribute('data-src');
+    const src = encodeURI(rawSrc);
     const iconPlay = btn.querySelector('.icon-play');
     const iconPause = btn.querySelector('.icon-pause');
 
-    // If clicking same track that's playing, pause it
-    if (currentTrackEl === trackEl && currentAudio && !currentAudio.paused) {
-        currentAudio.pause();
-        iconPlay.style.display = 'block';
-        iconPause.style.display = 'none';
-        trackEl.classList.remove('playing');
+    // If clicking same track
+    if (currentTrackEl === trackEl && currentAudio) {
+        if (!currentAudio.paused) {
+            currentAudio.pause();
+            iconPlay.style.display = 'block';
+            iconPause.style.display = 'none';
+            trackEl.classList.remove('playing');
+        } else {
+            currentAudio.play().then(() => {
+                iconPlay.style.display = 'none';
+                iconPause.style.display = 'block';
+                trackEl.classList.add('playing');
+            }).catch(showAudioError);
+        }
         return;
     }
 
-    // If another track is playing, stop it
+    // If different track is playing, stop it completely
     if (currentAudio) {
         currentAudio.pause();
         currentAudio.currentTime = 0;
         if (currentTrackEl) {
-            currentTrackEl.classList.remove('playing');
-            const prevPlay = currentTrackEl.querySelector('.icon-play');
-            const prevPause = currentTrackEl.querySelector('.icon-pause');
-            if (prevPlay) prevPlay.style.display = 'block';
-            if (prevPause) prevPause.style.display = 'none';
-            const prevFill = currentTrackEl.querySelector('.progress-fill');
-            if (prevFill) prevFill.style.width = '0%';
+            resetTrackUI(currentTrackEl);
         }
     }
 
-    // Create new audio or resume
-    if (currentTrackEl !== trackEl) {
-        currentAudio = new Audio(src);
-    }
-
+    // Initialize new track
+    currentAudio = new Audio(src);
     currentTrackEl = trackEl;
 
     currentAudio.play().then(() => {
         iconPlay.style.display = 'none';
         iconPause.style.display = 'block';
         trackEl.classList.add('playing');
-    }).catch(err => {
-        console.log('Audio playback error:', err);
-        // Show a message if file not found
-        const trackName = trackEl.querySelector('.track-name');
-        if (trackName) {
-            trackName.textContent = '⚠ File not found — Add audio to music/ folder';
-            trackName.style.color = '#e63956';
+    }).catch(showAudioError);
+
+    // Helper to reset UI
+    function resetTrackUI(el) {
+        el.classList.remove('playing');
+        const p = el.querySelector('.icon-play');
+        const s = el.querySelector('.icon-pause');
+        if (p) p.style.display = 'block';
+        if (s) s.style.display = 'none';
+        const f = el.querySelector('.progress-fill');
+        if (f) f.style.width = '0%';
+    }
+
+    // Helper for errors
+    function showAudioError(err) {
+        console.error('Audio playback error:', err);
+        const name = trackEl.querySelector('.track-name');
+        if (name) {
+            name.textContent = '⚠ Playback failed — Check file';
+            name.style.color = '#e63956';
         }
-    });
+    }
 
     // Update progress
     currentAudio.addEventListener('timeupdate', () => {
