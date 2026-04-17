@@ -124,6 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '.timeline-item, ' +
         '.skill-card, ' +
         '.ai-card, ' +
+        '.tasks-info-card, .task-card, ' +
         '.software-card, ' +
         '.education-card, ' +
         '.audio-showcase, .portfolio-gallery, .resume-section, ' +
