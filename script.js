@@ -384,5 +384,31 @@ if (heroSlides && heroSlides.length > 0) {
     }, slideInterval);
 }
 
+// ========== VIDEO MODAL CONTROLLER ==========
+function openVideoModal(url, title) {
+    const modal = document.getElementById('videoModal');
+    const iframe = document.getElementById('videoIframe');
+    if (modal && iframe) {
+        iframe.src = url;
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeVideoModal() {
+    const modal = document.getElementById('videoModal');
+    const iframe = document.getElementById('videoIframe');
+    if (modal && iframe) {
+        iframe.src = '';
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+}
+
+// Close modal on escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeVideoModal();
+});
+
 console.log('🎬 Dhanush S — Portfolio Loaded Successfully');
 console.log('📧 Contact: adhanush.shortfilm@gmail.com');
