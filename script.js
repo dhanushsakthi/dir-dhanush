@@ -405,9 +405,29 @@ function closeVideoModal() {
     }
 }
 
-// Close modal on escape key
+// ========== AI CONCEPTS TASKS GALLERY MODAL ==========
+function openTasksGalleryModal() {
+    const modal = document.getElementById('tasksGalleryModal');
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeTasksGalleryModal() {
+    const modal = document.getElementById('tasksGalleryModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+}
+
+// Close modals on escape key
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeVideoModal();
+    if (e.key === 'Escape') {
+        closeVideoModal();
+        closeTasksGalleryModal();
+    }
 });
 
 console.log('🎬 Dhanush S — Portfolio Loaded Successfully');
