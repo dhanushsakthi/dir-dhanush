@@ -371,5 +371,18 @@ document.querySelectorAll('.ai-card, .skill-card').forEach(card => {
     });
 });
 
+// ========== HERO BACKGROUND SLIDESHOW ==========
+const heroSlides = document.querySelectorAll('.hero-slideshow .slide');
+if (heroSlides && heroSlides.length > 0) {
+    let currentSlide = 0;
+    const slideInterval = 4000;
+
+    setInterval(() => {
+        heroSlides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % heroSlides.length;
+        heroSlides[currentSlide].classList.add('active');
+    }, slideInterval);
+}
+
 console.log('🎬 Dhanush S — Portfolio Loaded Successfully');
-console.log('📧 Contact: s46dhanush2005@gmail.com');
+console.log('📧 Contact: adhanush.shortfilm@gmail.com');
