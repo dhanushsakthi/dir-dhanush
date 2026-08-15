@@ -3,47 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dhanush S — Admin CMS Portal | dir-dhanush</title>
+    <title>Dhanush S — Filmmaker Admin CMS Studio | dir-dhanush</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { background-color: #030712; color: #f3f4f6; min-height: 100vh; display: flex; flex-direction: column; }
         .glass-card { background: rgba(17, 24, 39, 0.85); backdrop-filter: blur(16px); border: 1px solid rgba(31, 41, 55, 0.8); border-radius: 20px; }
-        .btn-primary { background: linear-gradient(135deg, #0284c7, #4338ca); color: #fff; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: all 0.2s; }
-        .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
-        .input-field { width: 100%; padding: 12px 16px; background: #0b0f19; border: 1px solid #1f2937; border-radius: 12px; color: #fff; font-size: 0.95rem; outline: none; margin-top: 6px; }
+        .btn-primary { background: linear-gradient(135deg, #0284c7, #4338ca); color: #fff; border: none; padding: 10px 20px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; }
+        .btn-primary:hover { opacity: 0.95; transform: translateY(-1px); }
+        .btn-secondary { background: #1f2937; color: #e5e7eb; border: 1px solid #374151; padding: 8px 16px; border-radius: 10px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-size: 0.85rem; }
+        .btn-secondary:hover { background: #374151; color: #fff; }
+        .btn-danger { background: rgba(225, 29, 72, 0.15); color: #f43f5e; border: 1px solid rgba(225, 29, 72, 0.3); padding: 6px 12px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.8rem; }
+        .btn-danger:hover { background: #e11d48; color: #fff; }
+        .btn-edit { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 6px 12px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.8rem; }
+        .btn-edit:hover { background: #0284c7; color: #fff; }
+        .input-field { width: 100%; padding: 12px 16px; background: #0b0f19; border: 1px solid #1f2937; border-radius: 12px; color: #fff; font-size: 0.9rem; outline: none; margin-top: 6px; }
         .input-field:focus { border-color: #38bdf8; }
         .hidden { display: none !important; }
         .badge { padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
         .badge-cyan { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
-        .badge-red { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+        .badge-rose { background: rgba(244, 63, 94, 0.15); color: #f43f5e; border: 1px solid rgba(244, 63, 94, 0.3); }
+        .badge-emerald { background: rgba(52, 211, 153, 0.15); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.3); }
+        .tab-btn { background: transparent; color: #9ca3af; border: none; padding: 12px 20px; font-weight: 700; font-size: 0.9rem; cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; }
+        .tab-btn.active { color: #38bdf8; border-bottom-color: #38bdf8; }
+        .modal-overlay { position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; padding: 20px; }
     </style>
 </head>
 <body>
 
     <!-- Header Navbar -->
-    <header style="border-bottom: 1px solid #1f2937; padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; background: #030712;">
+    <header style="border-bottom: 1px solid #1f2937; padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; background: #030712; position: sticky; top: 0; z-index: 100;">
         <div style="display: flex; align-items: center; gap: 12px;">
-            <div style="width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, #0284c7, #4338ca); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.9rem; color: #fff;">DIR</div>
+            <div style="width: 38px; height: 38px; border-radius: 12px; background: linear-gradient(135deg, #0284c7, #4338ca); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.9rem; color: #fff;">DIR</div>
             <div>
                 <h1 style="font-size: 1.1rem; font-weight: 800; color: #fff;">DHANUSH S <span style="font-size: 0.75rem; color: #38bdf8; font-weight: 600;">CMS Studio</span></h1>
                 <p style="font-size: 0.75rem; color: #9ca3af;">Filmmaker Admin Dashboard (dir-dhanush)</p>
             </div>
         </div>
         <div style="display: flex; gap: 12px; align-items: center;">
-            <a href="/" style="color: #9ca3af; text-decoration: none; font-size: 0.85rem; font-weight: 600;">← Back to Portfolio</a>
-            <button id="logoutBtn" onclick="logoutAdmin()" class="hidden" style="background: #1f2937; color: #f87171; border: 1px solid #374151; padding: 6px 14px; border-radius: 8px; font-weight: 600; font-size: 0.8rem; cursor: pointer;">Sign Out</button>
+            <a href="/" style="color: #9ca3af; text-decoration: none; font-size: 0.85rem; font-weight: 600;">← Back to Main Website</a>
+            <a href="https://dhanushportfolio.vercel.app/admin" target="_blank" class="btn-secondary">Full Next.js Studio 🚀</a>
+            <button id="logoutBtn" onclick="logoutAdmin()" class="hidden btn-danger">Sign Out</button>
         </div>
     </header>
 
     <!-- Login View Container -->
     <main id="loginView" style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 24px;">
-        <div class="glass-card" style="max-width: 420px; width: 100%; padding: 32px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.6);">
-            <div style="width: 56px; height: 56px; border-radius: 16px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); color: #38bdf8; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 24px;">🔒</div>
-            <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 6px;">Director Admin CMS</h2>
-            <p style="font-size: 0.85rem; color: #9ca3af; margin-bottom: 24px;">Sign in to manage projects, content & settings</p>
+        <div class="glass-card" style="max-width: 440px; width: 100%; padding: 36px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.6);">
+            <div style="width: 60px; height: 60px; border-radius: 18px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); color: #38bdf8; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 26px;">🔒</div>
+            <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 6px;">Director Admin CMS Studio</h2>
+            <p style="font-size: 0.85rem; color: #9ca3af; margin-bottom: 24px;">Sign in to add, edit, or remove projects & portfolio content</p>
             
             <form onsubmit="handleLogin(event)" style="text-align: left;">
                 <div style="margin-bottom: 16px;">
@@ -54,88 +65,248 @@
                     <label style="font-size: 0.75rem; font-weight: 700; color: #9ca3af; text-transform: uppercase;">Password</label>
                     <input type="password" id="adminPass" class="input-field" placeholder="••••••••" required>
                 </div>
-                <div id="loginError" style="color: #f87171; font-size: 0.8rem; margin-bottom: 14px; display: none;">Invalid credentials. Please try again.</div>
-                <button type="submit" class="btn-primary" style="width: 100%;">Sign In to Dashboard →</button>
+                <div id="loginError" style="color: #f87171; font-size: 0.8rem; margin-bottom: 14px; display: none;">Invalid credentials. Try admin / dhanush123</div>
+                <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">Sign In to Dashboard →</button>
             </form>
 
-            <p style="font-size: 0.75rem; color: #6b7280; margin-top: 20px; border-t: 1px solid #1f2937; padding-top: 14px;">
-                Default Credentials: <code style="color: #38bdf8;">admin</code> / <code style="color: #38bdf8;">dhanush123</code>
+            <p style="font-size: 0.75rem; color: #6b7280; margin-top: 24px; border-top: 1px solid #1f2937; padding-top: 16px;">
+                Admin Credentials: <code style="color: #38bdf8;">admin</code> or <code style="color: #38bdf8;">adhanush.shortfilm@gmail.com</code> / <code style="color: #38bdf8;">dhanush123</code>
             </p>
         </div>
     </main>
 
     <!-- Admin Dashboard View -->
-    <main id="dashboardView" class="hidden" style="flex: 1; max-width: 1200px; width: 100%; margin: 0 auto; padding: 32px 24px;">
+    <main id="dashboardView" class="hidden" style="flex: 1; max-width: 1240px; width: 100%; margin: 0 auto; padding: 32px 24px;">
         
         <!-- Welcome Banner -->
         <div class="glass-card" style="padding: 28px; margin-bottom: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
             <div>
-                <span class="badge badge-cyan">Filmmaker Studio Active</span>
-                <h2 style="font-size: 1.75rem; font-weight: 800; margin-top: 8px;">Welcome back, Dhanush S 👋</h2>
-                <p style="font-size: 0.9rem; color: #9ca3af;">Film Director & Assistant Director CMS Control Center</p>
+                <span class="badge badge-emerald">Filmmaker Studio Active</span>
+                <h2 style="font-size: 1.75rem; font-weight: 900; margin-top: 8px; color: #fff;">Welcome back, Director Dhanush S 👋</h2>
+                <p style="font-size: 0.9rem; color: #9ca3af;">Manage filmography, AI music creation, bio & team channels in real-time</p>
             </div>
-            <a href="https://dhanushportfolio.vercel.app/admin" target="_blank" class="btn-primary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
-                <span>Open Next.js CMS Studio 🚀</span>
-            </a>
-        </div>
-
-        <!-- Metrics Grid -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 32px;">
-            <div class="glass-card" style="padding: 20px;">
-                <span style="font-size: 0.75rem; color: #9ca3af; font-weight: 700; text-transform: uppercase;">Total Projects</span>
-                <h3 style="font-size: 2rem; font-weight: 900; color: #38bdf8; margin-top: 4px;">4</h3>
-                <p style="font-size: 0.75rem; color: #6b7280; margin-top: 4px;">Directed & AD Work</p>
-            </div>
-            <div class="glass-card" style="padding: 20px;">
-                <span style="font-size: 0.75rem; color: #9ca3af; font-weight: 700; text-transform: uppercase;">Assistant Director</span>
-                <h3 style="font-size: 2rem; font-weight: 900; color: #f43f5e; margin-top: 4px;">FEATHERS</h3>
-                <p style="font-size: 0.75rem; color: #6b7280; margin-top: 4px;">Active Short Film</p>
-            </div>
-            <div class="glass-card" style="padding: 20px;">
-                <span style="font-size: 0.75rem; color: #9ca3af; font-weight: 700; text-transform: uppercase;">Primary Email</span>
-                <h3 style="font-size: 0.95rem; font-weight: 800; color: #34d399; margin-top: 8px; word-break: break-all;">adhanush.shortfilm@gmail.com</h3>
-                <p style="font-size: 0.75rem; color: #6b7280; margin-top: 4px;">Verified Direct Contact</p>
-            </div>
-            <div class="glass-card" style="padding: 20px;">
-                <span style="font-size: 0.75rem; color: #9ca3af; font-weight: 700; text-transform: uppercase;">Team Channels</span>
-                <h3 style="font-size: 0.95rem; font-weight: 800; color: #a78bfa; margin-top: 8px;">Black Magic</h3>
-                <p style="font-size: 0.75rem; color: #6b7280; margin-top: 4px;">YouTube & Instagram</p>
+            <div style="display: flex; gap: 12px;">
+                <button onclick="openProjectModal()" class="btn-primary">➕ Add New Project</button>
+                <button onclick="openTrackModal()" class="btn-secondary">🎵 Add Music Track</button>
             </div>
         </div>
 
-        <!-- Quick Content Editor -->
-        <div class="glass-card" style="padding: 28px;">
-            <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px; border-bottom: 1px solid #1f2937; padding-bottom: 12px;">🎥 Managed Filmography & Media</h3>
-            
-            <div style="display: flex; flex-direction: column; gap: 16px;">
-                <div style="background: #0b0f19; padding: 16px; border-radius: 12px; border: 1px solid #1f2937; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-                    <div>
-                        <span class="badge badge-red">Assistant Director</span>
-                        <h4 style="font-size: 1.1rem; font-weight: 700; margin-top: 6px;">FEATHERS — Short Film</h4>
-                        <p style="font-size: 0.8rem; color: #9ca3af;">YouTube: https://youtu.be/GE3Canx1azk | Role: Assistant Director</p>
+        <!-- Tabs Header -->
+        <div style="display: flex; border-bottom: 1px solid #1f2937; margin-bottom: 24px;">
+            <button class="tab-btn active" onclick="switchTab('projectsTab', this)">🎬 Projects & Filmography</button>
+            <button class="tab-btn" onclick="switchTab('profileTab', this)">👤 Director Profile & Bio</button>
+            <button class="tab-btn" onclick="switchTab('musicTab', this)">🎵 AI Music Showcase</button>
+            <button class="tab-btn" onclick="switchTab('skillsTab', this)">⚡ Skills & AI Tools</button>
+        </div>
+
+        <!-- TAB 1: PROJECTS CMS -->
+        <div id="projectsTab" class="tab-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <h3 style="font-size: 1.2rem; font-weight: 800;">Filmography & Short Films (<span id="projectCount">4</span>)</h3>
+                <button onclick="openProjectModal()" class="btn-primary">➕ Add New Project</button>
+            </div>
+            <div id="projectsList" style="display: flex; flex-direction: column; gap: 16px;">
+                <!-- Dynamically Rendered Projects -->
+            </div>
+        </div>
+
+        <!-- TAB 2: PROFILE & BIO CMS -->
+        <div id="profileTab" class="tab-content hidden">
+            <div class="glass-card" style="padding: 28px;">
+                <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px; border-bottom: 1px solid #1f2937; padding-bottom: 12px;">Edit Director Profile Details</h3>
+                <form onsubmit="saveProfile(event)" style="display: flex; flex-direction: column; gap: 16px;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+                        <div>
+                            <label style="font-size: 0.75rem; font-weight: 700; color: #9ca3af;">Full Name</label>
+                            <input type="text" id="profName" class="input-field" value="DHANUSH S" required>
+                        </div>
+                        <div>
+                            <label style="font-size: 0.75rem; font-weight: 700; color: #9ca3af;">Headline / Role</label>
+                            <input type="text" id="profHeadline" class="input-field" value="Film Director & Assistant Director" required>
+                        </div>
+                        <div>
+                            <label style="font-size: 0.75rem; font-weight: 700; color: #9ca3af;">Primary Email</label>
+                            <input type="email" id="profEmail" class="input-field" value="adhanush.shortfilm@gmail.com" required>
+                        </div>
+                        <div>
+                            <label style="font-size: 0.75rem; font-weight: 700; color: #9ca3af;">Phone Number</label>
+                            <input type="text" id="profPhone" class="input-field" value="+91 6379855062" required>
+                        </div>
+                        <div>
+                            <label style="font-size: 0.75rem; font-weight: 700; color: #9ca3af;">Location</label>
+                            <input type="text" id="profLocation" class="input-field" value="Nagapattinam / Chennai, Tamil Nadu" required>
+                        </div>
+                        <div>
+                            <label style="font-size: 0.75rem; font-weight: 700; color: #9ca3af;">Team YouTube Channel URL</label>
+                            <input type="url" id="profYoutube" class="input-field" value="https://www.youtube.com/@black__magic-f4c" required>
+                        </div>
+                        <div>
+                            <label style="font-size: 0.75rem; font-weight: 700; color: #9ca3af;">Team Instagram Page URL</label>
+                            <input type="url" id="profInsta" class="input-field" value="https://www.instagram.com/blacky_magic?igsh=bjB2c2x6ZmhjenJq" required>
+                        </div>
                     </div>
-                    <span class="badge badge-cyan">Active on Portfolio</span>
+                    <div>
+                        <label style="font-size: 0.75rem; font-weight: 700; color: #9ca3af;">Director Statement</label>
+                        <textarea id="profStatement" rows="3" class="input-field">Filmmaking to me is the delicate art of capturing truth through light, sound, and motion. Every frame should carry intention, and every character choice should resonate with human emotion.</textarea>
+                    </div>
+                    <div style="margin-top: 8px;">
+                        <button type="submit" class="btn-primary">💾 Save Profile Updates</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- TAB 3: MUSIC SHOWCASE CMS -->
+        <div id="musicTab" class="tab-content hidden">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <h3 style="font-size: 1.2rem; font-weight: 800;">AI Music Creation & Audio Tracks</h3>
+                <button onclick="openTrackModal()" class="btn-primary">🎵 Add Music Track</button>
+            </div>
+            <div id="musicTracksList" style="display: flex; flex-direction: column; gap: 14px;">
+                <!-- Dynamically Rendered Tracks -->
+            </div>
+        </div>
+
+        <!-- TAB 4: SKILLS & TOOLS CMS -->
+        <div id="skillsTab" class="tab-content hidden">
+            <div class="glass-card" style="padding: 28px;">
+                <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 16px;">Filmmaking Skills & AI Capabilities</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px;" id="skillsBadges">
+                    <span class="badge badge-cyan">Film Direction</span>
+                    <span class="badge badge-rose">Assistant Director</span>
+                    <span class="badge badge-emerald">Screenplay Structure</span>
+                    <span class="badge badge-cyan">AI Storyboarding</span>
+                    <span class="badge badge-rose">Video Editing</span>
+                    <span class="badge badge-emerald">On-set Logistics</span>
                 </div>
-
-                <div style="background: #0b0f19; padding: 16px; border-radius: 12px; border: 1px solid #1f2937; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-                    <div>
-                        <span class="badge badge-cyan">Director</span>
-                        <h4 style="font-size: 1.1rem; font-weight: 700; margin-top: 6px;">LOCK-IN — Short Film</h4>
-                        <p style="font-size: 0.8rem; color: #9ca3af;">Role: Director & Writer | Genre: Thriller</p>
-                    </div>
-                    <span class="badge badge-cyan">Active on Portfolio</span>
+                <div style="display: flex; gap: 12px;">
+                    <input type="text" id="newSkillInput" class="input-field" style="margin-top: 0;" placeholder="Add new skill (e.g. Color Grading)...">
+                    <button onclick="addSkill()" class="btn-primary" style="shrink: 0;">Add Skill</button>
                 </div>
             </div>
         </div>
 
     </main>
 
+    <!-- PROJECT MODAL (ADD & EDIT) -->
+    <div id="projectModal" class="modal-overlay hidden">
+        <div class="glass-card" style="max-width: 600px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 28px; box-shadow: 0 20px 60px rgba(0,0,0,0.8);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #1f2937; padding-bottom: 12px;">
+                <h3 id="modalTitle" style="font-size: 1.25rem; font-weight: 800;">➕ Add New Project</h3>
+                <button onclick="closeProjectModal()" style="background: none; border: none; color: #9ca3af; font-size: 20px; cursor: pointer;">✕</button>
+            </div>
+            <form onsubmit="saveProject(event)" style="display: flex; flex-direction: column; gap: 14px;">
+                <input type="hidden" id="editProjId">
+                <div>
+                    <label style="font-size: 0.75rem; font-weight: 700; color: #9ca3af;">Project Title</label>
+                    <input type="text" id="projTitle" class="input-field" required placeholder="e.g. FEATHERS">
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div>
+                        <label style="font-size: 0.75rem; font-weight: 700; color: #9ca3af;">Category / Type</label>
+                        <select id="projType" class="input-field">
+                            <option value="Assistant Director Work">Assistant Director Work</option>
+                            <option value="Directed Film">Directed Film</option>
+                            <option value="Short Film">Short Film</option>
+                            <option value="Music Video">Music Video</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-size: 0.75rem; font-weight: 700; color: #9ca3af;">My Role</label>
+                        <input type="text" id="projRole" class="input-field" required placeholder="e.g. Assistant Director">
+                    </div>
+                </div>
+                <div>
+                    <label style="font-size: 0.75rem; font-weight: 700; color: #9ca3af;">YouTube Video URL</label>
+                    <input type="url" id="projYoutube" class="input-field" placeholder="https://youtu.be/GE3Canx1azk">
+                </div>
+                <div>
+                    <label style="font-size: 0.75rem; font-weight: 700; color: #9ca3af;">Short Logline / Synopsis</label>
+                    <textarea id="projLogline" rows="2" class="input-field" placeholder="Brief description of the short film or project..."></textarea>
+                </div>
+                <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 10px;">
+                    <button type="button" onclick="closeProjectModal()" class="btn-secondary">Cancel</button>
+                    <button type="submit" class="btn-primary">💾 Save Project</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- TRACK MODAL -->
+    <div id="trackModal" class="modal-overlay hidden">
+        <div class="glass-card" style="max-width: 500px; width: 100%; padding: 28px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <h3 style="font-size: 1.2rem; font-weight: 800;">🎵 Add Music Track</h3>
+                <button onclick="closeTrackModal()" style="background: none; border: none; color: #9ca3af; font-size: 20px; cursor: pointer;">✕</button>
+            </div>
+            <form onsubmit="saveTrack(event)" style="display: flex; flex-direction: column; gap: 14px;">
+                <div>
+                    <label style="font-size: 0.75rem; font-weight: 700; color: #9ca3af;">Track Title</label>
+                    <input type="text" id="trackName" class="input-field" required placeholder="e.g. Emotional Monologue Theme">
+                </div>
+                <div>
+                    <label style="font-size: 0.75rem; font-weight: 700; color: #9ca3af;">Style / Genre</label>
+                    <input type="text" id="trackType" class="input-field" required placeholder="e.g. Tamil Emotional Track">
+                </div>
+                <div>
+                    <label style="font-size: 0.75rem; font-weight: 700; color: #9ca3af;">Audio File Path (in music/ folder)</label>
+                    <input type="text" id="trackSrc" class="input-field" required placeholder="music/sad-song.mp3">
+                </div>
+                <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 10px;">
+                    <button type="button" onclick="closeTrackModal()" class="btn-secondary">Cancel</button>
+                    <button type="submit" class="btn-primary">💾 Add Track</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script>
+        // Initial Data Store
+        let projectsData = JSON.parse(localStorage.getItem('dir_projects')) || [
+            {
+                id: 'feathers',
+                title: 'FEATHERS',
+                type: 'Assistant Director Work',
+                role: 'Assistant Director',
+                youtube: 'https://youtu.be/GE3Canx1azk?si=O0_mcW6gAhiAEpOW',
+                logline: 'Acclaimed short film produced by Black Magic team with Dhanush S serving as Assistant Director.'
+            },
+            {
+                id: 'lockin',
+                title: 'LOCK-IN',
+                type: 'Directed Film',
+                role: 'Director & Writer',
+                youtube: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                logline: 'A gripping psychological thriller short film exploring isolation, ambition, and identity.'
+            },
+            {
+                id: 'shadows',
+                title: 'SHADOWS OF CHENNAI',
+                type: 'Assistant Director Work',
+                role: '1st Assistant Director',
+                youtube: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                logline: 'Feature length neo-noir crime thriller showcasing the underbelly of the metropolis.'
+            }
+        ];
+
+        let musicTracks = JSON.parse(localStorage.getItem('dir_music')) || [
+            { id: 1, name: 'Love Rejected', type: 'Dramatic BGM', src: 'music/love-rejected.mp3' },
+            { id: 2, name: 'Midnight Mind Game', type: 'Cinematic Theme', src: 'music/Midnight Mind Game.mp3' },
+            { id: 3, name: 'One Side Love', type: 'Romantic Melancholy', src: 'music/one-side(love).mp3' }
+        ];
+
+        let skillsList = JSON.parse(localStorage.getItem('dir_skills')) || [
+            'Film Direction', 'Assistant Director', 'Screenplay Structure', 'AI Storyboarding', 'Video Editing', 'On-set Logistics'
+        ];
+
         function checkSession() {
             if (localStorage.getItem('dir_dhanush_admin') === 'true') {
                 document.getElementById('loginView').classList.add('hidden');
                 document.getElementById('dashboardView').classList.remove('hidden');
                 document.getElementById('logoutBtn').classList.remove('hidden');
+                renderProjects();
+                renderTracks();
+                renderSkills();
             }
         }
 
@@ -158,6 +329,201 @@
             document.getElementById('dashboardView').classList.add('hidden');
             document.getElementById('logoutBtn').classList.add('hidden');
             document.getElementById('loginView').classList.remove('hidden');
+        }
+
+        function switchTab(tabId, btnEl) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).classList.remove('hidden');
+            btnEl.classList.add('active');
+        }
+
+        // Render Projects
+        function renderProjects() {
+            const list = document.getElementById('projectsList');
+            document.getElementById('projectCount').innerText = projectsData.length;
+            list.innerHTML = '';
+
+            projectsData.forEach(p => {
+                const item = document.createElement('div');
+                item.className = 'glass-card';
+                item.style.padding = '20px';
+                item.style.display = 'flex';
+                item.style.justifyContent = 'space-between';
+                item.style.alignItems = 'center';
+                item.style.flexWrap = 'wrap';
+                item.style.gap = '16px';
+
+                const isAD = p.type.includes('Assistant');
+                const badgeClass = isAD ? 'badge-rose' : 'badge-cyan';
+
+                item.innerHTML = `
+                    <div>
+                        <span class="badge ${badgeClass}">${p.type}</span>
+                        <h4 style="font-size: 1.15rem; font-weight: 800; margin-top: 6px; color: #fff;">${p.title}</h4>
+                        <p style="font-size: 0.82rem; color: #9ca3af; margin-top: 2px;">Role: <strong style="color: #f3f4f6;">${p.role}</strong> | YouTube: <a href="${p.youtube}" target="_blank" style="color: #38bdf8;">${p.youtube}</a></p>
+                        <p style="font-size: 0.85rem; color: #d1d5db; margin-top: 6px;">"${p.logline}"</p>
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <button onclick="editProject('${p.id}')" class="btn-edit">✏️ Edit</button>
+                        <button onclick="deleteProject('${p.id}')" class="btn-danger">🗑️ Delete</button>
+                    </div>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        // Project Modal Operations
+        function openProjectModal() {
+            document.getElementById('editProjId').value = '';
+            document.getElementById('projTitle').value = '';
+            document.getElementById('projRole').value = '';
+            document.getElementById('projYoutube').value = '';
+            document.getElementById('projLogline').value = '';
+            document.getElementById('modalTitle').innerText = '➕ Add New Project';
+            document.getElementById('projectModal').classList.remove('hidden');
+        }
+
+        function closeProjectModal() {
+            document.getElementById('projectModal').classList.add('hidden');
+        }
+
+        function editProject(id) {
+            const p = projectsData.find(x => x.id === id);
+            if (!p) return;
+            document.getElementById('editProjId').value = p.id;
+            document.getElementById('projTitle').value = p.title;
+            document.getElementById('projType').value = p.type;
+            document.getElementById('projRole').value = p.role;
+            document.getElementById('projYoutube').value = p.youtube || '';
+            document.getElementById('projLogline').value = p.logline || '';
+            document.getElementById('modalTitle').innerText = '✏️ Edit Project — ' + p.title;
+            document.getElementById('projectModal').classList.remove('hidden');
+        }
+
+        function saveProject(e) {
+            e.preventDefault();
+            const id = document.getElementById('editProjId').value || 'proj-' + Date.now();
+            const title = document.getElementById('projTitle').value.trim();
+            const type = document.getElementById('projType').value;
+            const role = document.getElementById('projRole').value.trim();
+            const youtube = document.getElementById('projYoutube').value.trim();
+            const logline = document.getElementById('projLogline').value.trim();
+
+            const existingIndex = projectsData.findIndex(x => x.id === id);
+            const obj = { id, title, type, role, youtube, logline };
+
+            if (existingIndex >= 0) {
+                projectsData[existingIndex] = obj;
+            } else {
+                projectsData.unshift(obj);
+            }
+
+            localStorage.setItem('dir_projects', JSON.stringify(projectsData));
+            renderProjects();
+            closeProjectModal();
+        }
+
+        function deleteProject(id) {
+            if (confirm('Are you sure you want to delete this project?')) {
+                projectsData = projectsData.filter(x => x.id !== id);
+                localStorage.setItem('dir_projects', JSON.stringify(projectsData));
+                renderProjects();
+            }
+        }
+
+        // Profile Form
+        function saveProfile(e) {
+            e.preventDefault();
+            const prof = {
+                name: document.getElementById('profName').value,
+                headline: document.getElementById('profHeadline').value,
+                email: document.getElementById('profEmail').value,
+                phone: document.getElementById('profPhone').value,
+                location: document.getElementById('profLocation').value,
+                youtube: document.getElementById('profYoutube').value,
+                insta: document.getElementById('profInsta').value,
+                statement: document.getElementById('profStatement').value,
+            };
+            localStorage.setItem('dir_profile', JSON.stringify(prof));
+            alert('✅ Profile details updated successfully!');
+        }
+
+        // Music Tracks Render & Ops
+        function renderTracks() {
+            const list = document.getElementById('musicTracksList');
+            list.innerHTML = '';
+            musicTracks.forEach(t => {
+                const el = document.createElement('div');
+                el.className = 'glass-card';
+                el.style.padding = '16px 20px';
+                el.style.display = 'flex';
+                el.style.justifyContent = 'space-between';
+                el.style.alignItems = 'center';
+
+                el.innerHTML = `
+                    <div>
+                        <h4 style="font-size: 1rem; font-weight: 700; color: #fff;">🎵 ${t.name}</h4>
+                        <p style="font-size: 0.8rem; color: #9ca3af;">Genre: ${t.type} | File: <code>${t.src}</code></p>
+                    </div>
+                    <button onclick="deleteTrack(${t.id})" class="btn-danger">🗑️ Remove</button>
+                `;
+                list.appendChild(el);
+            });
+        }
+
+        function openTrackModal() { document.getElementById('trackModal').classList.remove('hidden'); }
+        function closeTrackModal() { document.getElementById('trackModal').classList.add('hidden'); }
+
+        function saveTrack(e) {
+            e.preventDefault();
+            const name = document.getElementById('trackName').value.trim();
+            const type = document.getElementById('trackType').value.trim();
+            const src = document.getElementById('trackSrc').value.trim();
+
+            musicTracks.push({ id: Date.now(), name, type, src });
+            localStorage.setItem('dir_music', JSON.stringify(musicTracks));
+            renderTracks();
+            closeTrackModal();
+        }
+
+        function deleteTrack(id) {
+            musicTracks = musicTracks.filter(x => x.id !== id);
+            localStorage.setItem('dir_music', JSON.stringify(musicTracks));
+            renderTracks();
+        }
+
+        // Skills
+        function renderSkills() {
+            const container = document.getElementById('skillsBadges');
+            container.innerHTML = '';
+            skillsList.forEach((s, idx) => {
+                const badge = document.createElement('span');
+                badge.className = 'badge badge-cyan';
+                badge.style.display = 'inline-flex';
+                badge.style.alignItems = 'center';
+                badge.style.gap = '6px';
+                badge.style.fontSize = '0.85rem';
+                badge.style.padding = '6px 12px';
+                badge.innerHTML = `${s} <span onclick="removeSkill(${idx})" style="cursor:pointer; color:#f43f5e; font-weight:bold;">✕</span>`;
+                container.appendChild(badge);
+            });
+        }
+
+        function addSkill() {
+            const val = document.getElementById('newSkillInput').value.trim();
+            if (val) {
+                skillsList.push(val);
+                localStorage.setItem('dir_skills', JSON.stringify(skillsList));
+                document.getElementById('newSkillInput').value = '';
+                renderSkills();
+            }
+        }
+
+        function removeSkill(idx) {
+            skillsList.splice(idx, 1);
+            localStorage.setItem('dir_skills', JSON.stringify(skillsList));
+            renderSkills();
         }
 
         checkSession();
